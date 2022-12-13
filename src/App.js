@@ -38,7 +38,7 @@ const App = () => {
 
   const getPost = () => {
     axios
-      .get('https://stark-journey-01436.herokuapp.com/')
+      .get('stark-journey-01436.herokuapp.com/')
       .then(
         (response) => setPost(response.data),
         (err) => console.log(err)
@@ -47,14 +47,14 @@ const App = () => {
   }
 
   const handleCreate = (data) => {
-    axios.post('https://stark-journey-01436.herokuapp.com/', data).then((response) => {
+    axios.post('stark-journey-01436.herokuapp.com/', data).then((response) => {
       console.log(response)
       getPost()
     })
   }
 
   const handleEdit = (data) => {
-    axios.put('https://stark-journey-01436.herokuapp.com/' + data._id, data).then((response) => {
+    axios.put('stark-journey-01436.herokuapp.com/' + data._id, data).then((response) => {
       let newPost = post.map((post) => {
         return post._id !== data._id ? post : data
       })
@@ -63,7 +63,7 @@ const App = () => {
   }
 
   const handleDelete = (deletedPost) => {
-    axios.delete('https://stark-journey-01436.herokuapp.com/' + deletedPost._id).then((response) => {
+    axios.delete('stark-journey-01436.herokuapp.com/' + deletedPost._id).then((response) => {
       getPost()
     })
   }
