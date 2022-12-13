@@ -38,7 +38,7 @@ const App = () => {
 
   const getPost = () => {
     axios
-      .get('http://localhost:3000/twitter')
+      .get('https://stark-journey-01436.herokuapp.com')
       .then(
         (response) => setPost(response.data),
         (err) => console.log(err)
@@ -47,14 +47,14 @@ const App = () => {
   }
 
   const handleCreate = (data) => {
-    axios.post('http://localhost:3000/twitter/', data).then((response) => {
+    axios.post('https://stark-journey-01436.herokuapp.com/', data).then((response) => {
       console.log(response)
       getPost()
     })
   }
 
   const handleEdit = (data) => {
-    axios.put('http://localhost:3000/twitter/' + data._id, data).then((response) => {
+    axios.put('https://stark-journey-01436.herokuapp.com/' + data._id, data).then((response) => {
       let newPost = post.map((post) => {
         return post._id !== data._id ? post : data
       })
@@ -63,7 +63,7 @@ const App = () => {
   }
 
   const handleDelete = (deletedPost) => {
-    axios.delete('http://localhost:3000/twitter/' + deletedPost._id).then((response) => {
+    axios.delete('https://stark-journey-01436.herokuapp.com/' + deletedPost._id).then((response) => {
       getPost()
     })
   }
@@ -132,8 +132,8 @@ const App = () => {
 
   return (
     <div className="container-fluid m-auto-0">
-      <nav className="navbar bg-light">
-        <img className=" w-25 rounded" />
+      <nav className="navbar">
+        <img src="./logo.png" className="logo" />
         <Search onSearchChange={onSearchChange} />
         <button className="btn btn-outline-primary" onClick={() => setShow(!show)}>
           New Post

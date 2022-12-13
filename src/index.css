@@ -50,3 +50,18 @@ a {
 h1 {
   margin-bottom: 3vh;
 }
+
+body {
+  background: black;
+}
+
+.navbar {
+  background: rgb(207, 181, 59);
+}
+
+.logo {
+  width: 2rem;
+  border-radius: 3px;
+  transform: scale(1.5);
+  margin-left: 1em;
+}
