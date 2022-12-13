@@ -154,13 +154,13 @@ const App = () => {
         <img src="./logo.png" className="logo" />
         <Search onSearchChange={onSearchChange} />
 
-        <button className="btn btn-light" onClick={showAdd}>
+        <button className="btn btn-light addbtn" onClick={showAdd}>
           <ion-icon name="add"></ion-icon>
         </button>
-        <button className="btn btn-light" onClick={showHome}>
+        <button className="btn btn-light showhomebtn" onClick={showHome}>
           <ion-icon name="home"></ion-icon>
         </button>
-        <button className="btn btn-light" onClick={showPostP}>
+        <button className="btn btn-light showpostbtn" onClick={showPostP}>
           <ion-icon name="logo-twitter"></ion-icon>
         </button>
         <button className="btn btn-light">
