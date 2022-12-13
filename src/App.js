@@ -6,8 +6,10 @@ import Edit from './components/Edit'
 import Search from './components/Search'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import { GoogleLogin } from 'react-google-login';
+import { gapi } from 'gapi-script';
 
-// load api
+// // load api
 import { GoogleMap, useLoadScript } from '@react-google-maps/api'
 
 const App = () => {
@@ -108,12 +110,44 @@ const App = () => {
     getPost()
   }, [])
 
+
+//googleLOGIN
+const clientId = '  566759060778-1j044s0ur30uj2qt3f7levkr61tl1rv6.apps.googleusercontent.com';
+
+useEffect(() => {
+   const initClient = () => {
+         gapi.client.init({
+         clientId: clientId,
+         scope: ''
+       });
+    };
+    gapi.load('client:auth2', initClient);
+});
+
+const onSuccess = (res) => {
+  console.log('success:', res);
+};
+const onFailure = (err) => {
+  console.log('failed:', err);
+};
+return (
+ <GoogleLogin
+    clientId={clientId}
+    buttonText="Sign in with Google"
+    onSuccess={onSuccess}
+    onFailure={onFailure}
+    cookiePolicy={'single_host_origin'}
+    isSignedIn={true}
+/>
+);
+
+
   return (
     <div className="container-fluid m-auto-0">
       <nav className="navbar bg-light">
         <img className=" w-25 rounded" />
         <Search onSearchChange={onSearchChange} />
-        <button onClick={() => setShow(!show)}>Add</button>;
+        <button onClick={() => setShow(!show)}>Add</button>
         <>
           {/* no longer needed  */}
           {/* <Button variant="primary" onClick={handleShow}>
