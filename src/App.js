@@ -142,9 +142,9 @@ const App = () => {
     setShowPost(false)
   }
   const showAdd = () => {
-    setShow(false)
-    setShow(false)
+    setShowHomeP(false)
     setShowPost(false)
+    setShow(true)
   }
 
   return (
@@ -154,6 +154,9 @@ const App = () => {
         <img src="./logo.png" className="logo" />
         <Search onSearchChange={onSearchChange} />
 
+        <button className="btn btn-light" onClick={showAdd}>
+          <ion-icon name="add"></ion-icon>
+        </button>
         <button className="btn btn-light" onClick={showHome}>
           <ion-icon name="home"></ion-icon>
         </button>
