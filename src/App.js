@@ -38,7 +38,7 @@ const App = () => {
 
   const getPost = () => {
     axios
-      .get('https://stark-journey-01436.herokuapp.com')
+      .get('https://stark-journey-01436.herokuapp.com/')
       .then(
         (response) => setPost(response.data),
         (err) => console.log(err)
