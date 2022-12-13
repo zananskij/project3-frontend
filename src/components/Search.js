@@ -3,14 +3,20 @@ import { useState } from 'react'
 const Search = ({ onSearchChange }) => {
   const [searchInput, setSearchInput] = useState('')
 
-  const handleSearchChange = (event) => {
-    event.preventDefault()
-    setSearchInput(event.target.value)
-    onSearchChange(event.target.value)
+  const handleSearchChange = (e) => {
+    e.preventDefault()
+    setSearchInput(e.target.value)
+    onSearchChange(e.target.value)
   }
   return (
-    <div className="searchBarContainer">
-      <input type="text" value={searchInput} placeholder="Search" onChange={handleSearchChange} />
+    <div className="searchBarContainer ">
+      <input
+        className=" form-control"
+        type="text"
+        value={searchInput}
+        placeholder="       Search for post"
+        onChange={handleSearchChange}
+      />
     </div>
   )
 }

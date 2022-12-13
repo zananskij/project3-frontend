@@ -123,45 +123,80 @@ const App = () => {
   // search
   // search
   // search
-
   const [show, setShow] = useState(false)
+  const [showPost, setShowPost] = useState(false)
+  const [showHomeP, setShowHomeP] = useState(false)
 
   useEffect(() => {
     getPost()
   }, [])
 
+  const showHome = () => {
+    setShowHomeP(true)
+    setShowPost(false)
+    setShow(false)
+  }
+  const showPostP = () => {
+    setShowHomeP(false)
+    setShowPost(true)
+    setShowPost(false)
+  }
+  const showAdd = () => {
+    setShowHomeP(false)
+    setShowPost(false)
+    setShow(true)
+  }
+
   return (
     <div className="container-fluid m-auto-0">
-      <nav className="navbar">
+      <div className="header-nav"></div>
+      <nav className="navbar w-100">
         <img src="./logo.png" className="logo" />
         <Search onSearchChange={onSearchChange} />
-        <button className="btn btn-outline-primary" onClick={() => setShow(!show)}>
-          New Post
+
+        <button className="btn btn-light" onClick={showAdd}>
+          <ion-icon name="add"></ion-icon>
         </button>
-        <>
-          <Modal show={showModal} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Location</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              {' '}
-              <GoogleMap zoom={7} center={{ lat: 28, lng: -81 }} mapContainerClassName="map-container"></GoogleMap>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </>
+        <button className="btn btn-light" onClick={showHome}>
+          <ion-icon name="home"></ion-icon>
+        </button>
+        <button className="btn btn-light" onClick={showPostP}>
+          <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+        <button className="btn btn-light">
+          <ion-icon name="add"></ion-icon>
+        </button>
       </nav>
-      <h1 className="text-center">twitterClone</h1>
-      {/* <button onClick={showEdit} handleEdit={}></button> */}
-      {show ? <Add handleCreate={handleCreate} /> : null}
+      <div>
+        <Modal show={showModal} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Location</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {' '}
+            <GoogleMap zoom={7} center={{ lat: 28, lng: -81 }} mapContainerClassName="map-container"></GoogleMap>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+
+      {showHomeP ? (
+        <div className="container">
+          <video width="300rem" height="400rem" muted autoPlay loop controls>
+            <source src="./T.mp4" type="video/mp4" />
+          </video>
+        </div>
+      ) : null}
+
+      {/* <h1 className="text-center">twitter Clone</h1> */}
 
       <div className="row posts-container text-center">
-        {postToDisplay.map((post) => {
-          return (
+        {post.map((post) => {
+          return showPost ? (
             <div className="post-container m-2" key={post._id}>
               <div className="col-12 m-auto ">
                 <Post post={post} />
@@ -181,7 +216,7 @@ const App = () => {
                     <Modal.Title>Edit</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <Edit handleChange={handleEdit} />
+                    <Edit handleEdit={handleEdit} />
                   </Modal.Body>
                   <Modal.Footer>
                     <button
@@ -202,7 +237,7 @@ const App = () => {
 
               {/* <Edit post={post} handleEdit={handleEdit} /> */}
             </div>
-          )
+          ) : null
         })}
         <NoSearchResults />
       </div>
