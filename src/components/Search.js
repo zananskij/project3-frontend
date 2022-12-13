@@ -3,10 +3,10 @@ import { useState } from 'react'
 const Search = ({ onSearchChange }) => {
   const [searchInput, setSearchInput] = useState('')
 
-  const handleSearchChange = (e) => {
-    e.preventDefault()
-    setSearchInput(e.target.value)
-    onSearchChange(e.target.value)
+  const handleSearchChange = (event) => {
+    event.preventDefault()
+    setSearchInput(event.target.value)
+    onSearchChange(event.target.value)
   }
   return (
     <div className="searchBarContainer">

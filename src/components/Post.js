@@ -18,8 +18,8 @@ const Post = (props) => {
           }}
         >
           <a href="#" onClick={handleShow}>
-            {props.post.location}
             <ion-icon name="location-outline"></ion-icon>
+            {props.post.location}
           </a>
           <Modal show={showModal} onHide={handleClose}>
             <Modal.Header closeButton>

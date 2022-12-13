@@ -15,7 +15,7 @@ const Edit = (props) => {
   return (
     <div>
       <details>
-        <summary>Edit Tweet</summary>
+        <summary>edit Tweet</summary>
 
         <form onSubmit={handleSubmit}>
           <label htmlFor="location">location : </label>
@@ -32,7 +32,7 @@ const Edit = (props) => {
           <label htmlFor="img">Image : </label>
           <input type="text" name="img" onChange={handleChange} value={post.img} />
           <br></br>
-          <input className="" type="submit" />
+          <input type="submit" />
         </form>
       </details>
     </div>
