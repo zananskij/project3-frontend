@@ -9,8 +9,14 @@ const Search = ({ onSearchChange }) => {
     onSearchChange(e.target.value)
   }
   return (
-    <div className="searchBarContainer">
-      <input type="text" value={searchInput} placeholder="Search" onChange={handleSearchChange} />
+    <div className="searchBarContainer ">
+      <input
+        className=" form-control"
+        type="text"
+        value={searchInput}
+        placeholder="       Search for post"
+        onChange={handleSearchChange}
+      />
     </div>
   )
 }
