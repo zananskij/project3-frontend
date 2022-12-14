@@ -38,7 +38,7 @@ const App = () => {
 
   const getPost = () => {
     axios
-      .get('stark-journey-01436.herokuapp.com/')
+      .get('https://stark-journey-01436.herokuapp.com/')
       .then(
         (response) => setPost(response.data),
         (err) => console.log(err)
@@ -47,14 +47,14 @@ const App = () => {
   }
 
   const handleCreate = (data) => {
-    axios.post('stark-journey-01436.herokuapp.com/', data).then((response) => {
+    axios.post('https://stark-journey-01436.herokuapp.com/', data).then((response) => {
       console.log(response)
       getPost()
     })
   }
 
   const handleEdit = (data) => {
-    axios.put('stark-journey-01436.herokuapp.com/' + data._id, data).then((response) => {
+    axios.put('https://stark-journey-01436.herokuapp.com/' + data._id, data).then((response) => {
       let newPost = post.map((post) => {
         return post._id !== data._id ? post : data
       })
@@ -63,7 +63,7 @@ const App = () => {
   }
 
   const handleDelete = (deletedPost) => {
-    axios.delete('stark-journey-01436.herokuapp.com/' + deletedPost._id).then((response) => {
+    axios.delete('https://stark-journey-01436.herokuapp.com/' + deletedPost._id).then((response) => {
       getPost()
     })
   }
@@ -160,7 +160,7 @@ const App = () => {
         <button className="btn btn-light showhomebtn" onClick={showHome}>
           <ion-icon name="home"></ion-icon>
         </button>
-        <button className="btn btn-light showpostbtn" onClick={showPostP}>
+        <button className="btn btn-light" onClick={showPostP}>
           <ion-icon name="logo-twitter"></ion-icon>
         </button>
         <button className="btn btn-light">
