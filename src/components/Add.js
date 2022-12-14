@@ -15,7 +15,7 @@ const Add = (props) => {
   return (
     <div className="container-fluid">
       <div
-        className="mb-5 bg-light w-50
+        className="mb-5 bg-light w-75
       m-auto "
       >
         <form onSubmit={handleSubmit}>

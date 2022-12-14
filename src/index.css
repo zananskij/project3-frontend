@@ -9,9 +9,9 @@ body {
 }
 
 h1 {
-  color: rgba(255, 255, 255, 0.466);
+  color: rgba(255, 255, 255, 0.493);
   font-family: 'Diplomata SC', cursive;
-  text-shadow: 2px 2px rgb(205, 178, 25);
+  text-shadow: 2px 2px rgb(214, 200, 119);
   animation: fadeIn 5s;
   animation-iteration-count: infinite;
 }

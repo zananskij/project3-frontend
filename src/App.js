@@ -194,7 +194,7 @@ const App = () => {
           <video width="300rem" height="400rem" muted autoPlay loop>
             <source src="./T.mp4" type="video/mp4" />
           </video>
-          <h1 className="text-center">twitter Clone</h1>
+          <h1 className="text-center">City Book</h1>
         </div>
       ) : null}
 
