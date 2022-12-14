@@ -97,6 +97,10 @@ video {
   justify-content: space-around;
 }
 
+summary {
+  color: white;
+}
+
 @media screen and (max-width: 600px) {
   .navbar {
     padding-right: 2rem;

@@ -17,11 +17,6 @@ const App = () => {
   // search
   const [isSearching, setIsSearching] = useState(false)
   const [filteredPost, setFilteredPost] = useState([])
-  // search
-
-  // check if map loaded || dont need to load twice
-
-  // map
 
   // modal
   const [showModal, setShowModal] = useState(false)
@@ -31,11 +26,8 @@ const App = () => {
   const handleShow = () => setShowModal(true)
   const handleShowEdit = () => setShowEditModal(true)
   const handleCloseEdit = () => setShowEditModal(false)
-  // modal
 
-  // click target id
-  // const targetClick = () => {}
-
+  // routes
   const getPost = () => {
     axios
       .get('https://stark-journey-01436.herokuapp.com/')
@@ -88,6 +80,8 @@ const App = () => {
   //     setIsSearching(false)
   //   }
   // }
+
+  // search
   const onSearchChange = useCallback(
     (searchInput) => {
       const searchInputLower = searchInput.toLowerCase()
@@ -108,10 +102,6 @@ const App = () => {
     [post]
   )
 
-  // const dropdownFunction = () => {
-  //   document.getElementById(`dropdown${props.post.id}`).classList.toggle('show')
-  // }
-
   const NoSearchResults = () => {
     return (
       <>
@@ -119,15 +109,13 @@ const App = () => {
       </>
     )
   }
-
+  // search filtered posts
   const postToDisplay = isSearching ? filteredPost : post
-  // search
-  // search
-  // search
+
+  // states to show pages
   const [show, setShow] = useState(false)
   const [showPost, setShowPost] = useState(false)
   const [showHomeP, setShowHomeP] = useState(true)
-  // const [homePage, sethomePage] = useState(true)
 
   useEffect(() => {
     getPost()
@@ -149,13 +137,6 @@ const App = () => {
     setShow(true)
   }
 
-  // const homePage = () => {
-  //   setShowHomeP(false)
-  //   setShowPost(false)
-  //   setShow(false)
-  //   sethomePage(true)
-  // }
-
   return (
     <div className="container-fluid m-auto-0">
       <nav className="navbar navbar-expand w-100 d-flex p-3;">
@@ -172,22 +153,6 @@ const App = () => {
           <ion-icon name="add"></ion-icon>
         </button>
       </nav>
-      <div>
-        <Modal show={showModal} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Location</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {' '}
-            <GoogleMap zoom={7} center={{ lat: 28, lng: -81 }} mapContainerClassName="map-container"></GoogleMap>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
 
       {showHomeP ? (
         <div className="container-fluid">
