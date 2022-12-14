@@ -32,6 +32,7 @@ code {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 1.2rem;
 }
 
 .col-12 {
@@ -99,6 +100,16 @@ video {
 
 summary {
   color: white;
+}
+
+label {
+  color: white;
+}
+.form-label {
+  color: black;
+}
+.add-form {
+  padding: 1rem;
 }
 
 @media screen and (max-width: 600px) {

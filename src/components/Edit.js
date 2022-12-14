@@ -15,7 +15,7 @@ const Edit = (props) => {
   return (
     <div>
       <details>
-        <summary>edit Tweet</summary>
+        <summary>Edit Post</summary>
 
         <form onSubmit={handleSubmit}>
           <label htmlFor="location">location : </label>

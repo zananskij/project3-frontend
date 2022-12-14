@@ -18,9 +18,9 @@ const Add = (props) => {
         className="mb-5 bg-light w-75
       m-auto "
       >
-        <form onSubmit={handleSubmit}>
+        <form className="add-form" onSubmit={handleSubmit}>
           <label className="form-label" htmlFor="location ">
-            location :{' '}
+            Location :{' '}
           </label>
           <input className=" form-control " type="text" name="location" onChange={handleChange} />
           <br />
@@ -35,7 +35,7 @@ const Add = (props) => {
           </div>
           <div className="mb-3">
             <label className="form-label" htmlFor="date">
-              date :{' '}
+              Date :{' '}
             </label>{' '}
             <br></br>
             <input className=" form-control " type="date" name="date" onChange={handleChange} />

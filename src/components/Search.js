@@ -14,7 +14,7 @@ const Search = ({ onSearchChange }) => {
         className=" form-control"
         type="text"
         value={searchInput}
-        placeholder="       Search for post"
+        placeholder="              Search..."
         onChange={handleSearchChange}
       />
     </div>
