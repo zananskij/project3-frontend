@@ -9,12 +9,12 @@ body {
 }
 
 h1 {
-  color: white;
+  color: rgba(255, 255, 255, 0.466);
   font-family: 'Diplomata SC', cursive;
-  text-shadow: 2px 2px gold;
-  animation: fadeIn 2s;
+  text-shadow: 2px 2px rgb(205, 178, 25);
+  animation: fadeIn 5s;
+  animation-iteration-count: infinite;
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -83,4 +83,26 @@ body {
   border-radius: 3px;
   transform: scale(1.5);
   margin-left: 1em;
+  padding-bottom: 4px;
+}
+
+video {
+  position: static;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.d-flex {
+  display: flex !important;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    padding-right: 2rem;
+  }
+  .d-flex {
+    justify-content: space-between;
+    padding-right: 0.1rem;
+  }
 }

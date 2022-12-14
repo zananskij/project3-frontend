@@ -47,9 +47,10 @@ const App = () => {
   }
 
   const handleCreate = (data) => {
-    axios.post('https://stark-journey-01436.herokuapp.com/', data).then((response) => {
+    axios.post('https://stark-journey-01436.herokuapp.com/ ', data).then((response) => {
       console.log(response)
       getPost()
+      showPostP()
     })
   }
 
@@ -114,7 +115,7 @@ const App = () => {
   const NoSearchResults = () => {
     return (
       <>
-        <p className="noResults">No related posts found...</p>
+        <p className="noResults"></p>
       </>
     )
   }
@@ -125,7 +126,8 @@ const App = () => {
   // search
   const [show, setShow] = useState(false)
   const [showPost, setShowPost] = useState(false)
-  const [showHomeP, setShowHomeP] = useState(false)
+  const [showHomeP, setShowHomeP] = useState(true)
+  // const [homePage, sethomePage] = useState(true)
 
   useEffect(() => {
     getPost()
@@ -139,31 +141,34 @@ const App = () => {
   const showPostP = () => {
     setShowHomeP(false)
     setShowPost(true)
-    // setShowPost(false)
+    setShow(false)
   }
-  // const showAdd = () => {
+  const showAdd = () => {
+    setShowHomeP(false)
+    setShowPost(false)
+    setShow(true)
+  }
+
+  // const homePage = () => {
   //   setShowHomeP(false)
   //   setShowPost(false)
-  //   setShow(true)
+  //   setShow(false)
+  //   sethomePage(true)
   // }
 
   return (
     <div className="container-fluid m-auto-0">
-      <div className="header-nav"></div>
-      <nav className="navbar w-100">
+      <nav className="navbar navbar-expand w-100 d-flex p-3;">
         <img src="./logo.png" className="logo" />
         <Search onSearchChange={onSearchChange} />
 
-        <button className="btn btn-light addbtn" onClick={show}>
-          <ion-icon name="add"></ion-icon>
-        </button>
         <button className="btn btn-light showhomebtn" onClick={showHome}>
           <ion-icon name="home"></ion-icon>
         </button>
         <button className="btn btn-light" onClick={showPostP}>
           <ion-icon name="logo-twitter"></ion-icon>
         </button>
-        <button className="btn btn-light">
+        <button className="btn btn-light addbtn" onClick={showAdd}>
           <ion-icon name="add"></ion-icon>
         </button>
       </nav>
@@ -185,39 +190,34 @@ const App = () => {
       </div>
 
       {showHomeP ? (
-        <div className="container">
-          <video width="300rem" height="400rem" muted autoPlay loop controls>
+        <div className="container-fluid">
+          <video width="300rem" height="400rem" muted autoPlay loop>
             <source src="./T.mp4" type="video/mp4" />
           </video>
+          <h1 className="text-center">twitter Clone</h1>
         </div>
       ) : null}
 
-      {/* <h1 className="text-center">twitter Clone</h1> */}
-
       <div className="row posts-container text-center">
-        {post.map((post) => {
+        {show ? <Add handleCreate={handleCreate} /> : null}
+        {postToDisplay.map((post) => {
           return showPost ? (
             <div className="post-container m-2" key={post._id}>
               <div className="col-12 m-auto ">
                 <Post post={post} />
-                {/* {showEdit ? <Edit handleEdit={handleEdit} /> : null} */}
               </div>
-              {/* <button className="btn btn-outline-primary" onClick={(post) => setShowEdit(!showEdit)}>
-                EDIT
-              </button> */}
+
               <>
-                {/* no longer needed  */}
-                <Button variant="primary" onClick={handleShowEdit}>
-                  Modal Btn
+                <Button className="m-1" variant="light" onClick={handleShowEdit}>
+                  <ion-icon name="settings"></ion-icon>
                 </Button>
+                <Edit post={post} handleEdit={handleEdit} />
 
                 <Modal show={showEditModal} onHide={handleCloseEdit}>
                   <Modal.Header closeButton>
-                    <Modal.Title>Edit</Modal.Title>
+                    <Modal.Title>Delete</Modal.Title>
                   </Modal.Header>
-                  <Modal.Body>
-                    <Edit handleEdit={handleEdit} />
-                  </Modal.Body>
+                  <Modal.Body></Modal.Body>
                   <Modal.Footer>
                     <button
                       className="btn btn-outline-danger"
@@ -234,8 +234,6 @@ const App = () => {
                   </Modal.Footer>
                 </Modal>
               </>
-
-              {/* <Edit post={post} handleEdit={handleEdit} /> */}
             </div>
           ) : null
         })}

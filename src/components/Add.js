@@ -15,7 +15,7 @@ const Add = (props) => {
   return (
     <div className="container-fluid">
       <div
-        className="mb-5 bg-light 
+        className="mb-5 bg-light w-50
       m-auto "
       >
         <form onSubmit={handleSubmit}>
@@ -48,20 +48,7 @@ const Add = (props) => {
             <input className=" form-control " type="text" name="img" onChange={handleChange} />
             <br></br>
           </div>
-          <div className="mb-3">
-            <label className="form-label" htmlFor="lat">
-              Lat :{' '}
-            </label>
-            <input className=" form-control " type="number" name="lat" onChange={handleChange} />
-            <br></br>
-          </div>
-          <div className="mb-3">
-            <label className="form-label" htmlFor="lng">
-              Lng :{' '}
-            </label>
-            <input className=" form-control " type="number" name="lng" onChange={handleChange} />
-            <br></br>
-          </div>
+
           <input className="btn btn-danger" type="submit" />
         </form>
       </div>
