@@ -139,13 +139,13 @@ const App = () => {
   const showPostP = () => {
     setShowHomeP(false)
     setShowPost(true)
-    setShowPost(false)
+    // setShowPost(false)
   }
-  const showAdd = () => {
-    setShowHomeP(false)
-    setShowPost(false)
-    setShow(true)
-  }
+  // const showAdd = () => {
+  //   setShowHomeP(false)
+  //   setShowPost(false)
+  //   setShow(true)
+  // }
 
   return (
     <div className="container-fluid m-auto-0">
@@ -154,7 +154,7 @@ const App = () => {
         <img src="./logo.png" className="logo" />
         <Search onSearchChange={onSearchChange} />
 
-        <button className="btn btn-light addbtn" onClick={showAdd}>
+        <button className="btn btn-light addbtn" onClick={show}>
           <ion-icon name="add"></ion-icon>
         </button>
         <button className="btn btn-light showhomebtn" onClick={showHome}>
